@@ -1,0 +1,35 @@
+snippet desc "describe '' do ... end"
+describe "$1" do
+  $2
+end
+endsnippet
+
+snippet cont "context '' do ... end"
+context "$1" do
+  $2
+end
+endsnippet
+
+snippet exp "expect().to"
+expect($1).to $2
+endsnippet
+
+snippet allow "allow().to receive"
+allow($1).to receive($2)
+endsnippet
+
+snippet rspe "setup spec"
+require "spec_helper"
+
+describe $1 do
+  $2
+end
+endsnippet
+
+
+snippet it "RSpec it block"
+it "$1" do
+  $2
+end
+endsnippet
+
