@@ -8,6 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'                                        " let Vundle manage Vundle, required
+Plugin 'ervandew/supertab'                                           " Tab completion
 Plugin 'thoughtbot/vim-rspec'                                        " RSpec
 Plugin 'tpope/vim-bundler'                                           " Bundler
 Plugin 'tpope/vim-rake'                                              " Rake
@@ -63,7 +64,7 @@ let g:UltiSnipsEditSplit = 'vertical'
 " ======================= "
 " vim-airline/vim-airline "
 " ======================= "
-let g:airline_section_y = ''
+let g:airline_section_y = fnamemodify(getcwd(), ':t')
 let g:airline_section_error = ''
 let g:airline_section_warning = ''
 let g:airline_theme = 'material'
@@ -131,7 +132,6 @@ map <Leader>p :cp<cr>
 map <Leader>cs :call SearchForCallSitesCursor()<CR>
 map <Leader>cd :call SearchForRubyMethodDeclarationCursor()<CR>
 map <Leader>cf :call SearchForRubyClassCursor()<CR>
-map <Leader>sa :call SearchPatternAccrossProject()<CR>
 map <Leader>d Obinding.pry<esc>:w<cr>
 map <Leader>D obinding.pry<esc>:w<cr>
 map <Leader>dr :e ~/Dropbox<cr>
@@ -158,6 +158,7 @@ map <Leader>ns :set nospell<cr>
 map <Leader>mm [<C-d>
 map <Leader>a :NERDTreeToggle<CR>
 noremap <silent> <leader>m :NERDTreeFind<cr>
+inoremap <Tab> <C-P>
 
 function! FormatFile()
   normal! mmgg=G`m^
@@ -264,6 +265,7 @@ set wildmode=list:full            " What to do when I press 'wildchar'. Worth tw
 set noesckeys                     " (Hopefully) removes the delay when hitting esc in insert mode
 set ttimeout
 set ttimeoutlen=1                 " Faster leader commands
+set timeoutlen=500
 set list listchars=tab:»·,trail:· " Display whitespace and tab chars
 set hlsearch                      " Switch on highlighting the last used search pattern
 
@@ -271,7 +273,6 @@ set hlsearch                      " Switch on highlighting the last used search 
 " Letters "
 " ======= "
 let g:rspec_command = '!clear && bin/rspec {spec}'
-let g:dispatch_quickfix_height=25
 
 au BufNewFile,BufRead *.txt setlocal nolist " Don't display whitespace
 
