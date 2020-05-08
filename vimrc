@@ -66,7 +66,7 @@ let g:UltiSnipsEditSplit = 'vertical'
 let g:airline_section_y = ''
 let g:airline_section_error = ''
 let g:airline_section_warning = ''
-let g:airline_theme = 'minimalist'
+let g:airline_theme = 'material'
 
 " =========== "
 " mxw/vim-jsx "
@@ -151,7 +151,7 @@ map <Leader>vi :tabe ~/.vimrc<CR>
 map <Leader>w <C-w>w
 map <Leader>x :exec getline(".")<cr>
 map <Leader>nn :noh<cr>
-map <Leader>s :Ag 
+nnoremap <Leader>s :Ag 
 map <Leader>cl :w<cr>:exe "! clear && cucumber %" . ":" . line(".")<cr>
 map <Leader>sc :setlocal spell spelllang=en_us<cr>
 map <Leader>ns :set nospell<cr>
@@ -263,7 +263,7 @@ set wildmenu                      " Better? completion on command line
 set wildmode=list:full            " What to do when I press 'wildchar'. Worth tweaking to see what feels right.
 set noesckeys                     " (Hopefully) removes the delay when hitting esc in insert mode
 set ttimeout
-set ttimeoutlen=500               " Faster leader commands
+set ttimeoutlen=1                 " Faster leader commands
 set list listchars=tab:»·,trail:· " Display whitespace and tab chars
 set hlsearch                      " Switch on highlighting the last used search pattern
 
@@ -371,3 +371,11 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown " By default, vim thin
 autocmd FileType markdown setlocal nolist wrap lbr        " Without this, vim breaks in the middle of words when wrapping
 autocmd FileType qf setlocal wrap linebreak               " Wrap the quickfix window
 autocmd VimResized * :wincmd =                            " Make sure tmux does not overlap vim splits
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal g`\"" |
+      \ endif
