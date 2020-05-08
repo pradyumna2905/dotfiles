@@ -296,22 +296,18 @@ let &t_EI.="\e[1 q"
 " ===== "
 " Theme "
 " ===== "
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-let &t_ZH="\<Esc>[3m"
-let &t_ZR="\<Esc>[23m"
-if (has('termguicolors'))
-  set termguicolors
-endif
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
 let g:material_terminal_italics = 1
+" let g:material_theme_style = 'lighter'
 colorscheme material
 
-
-highlight PmenuSel ctermfg=black " Make the omnicomplete text readable
-highlight StatusLine ctermfg=blue ctermbg=yellow " Highlight the status line
-highlight SignColumn ctermbg=black " Gutter background
+highlight PmenuSel ctermfg=black                             " Make the omnicomplete text readable
+highlight StatusLine ctermfg=blue ctermbg=yellow             " Highlight the status line
+highlight SignColumn ctermbg=black                           " Gutter background
 highlight MatchParen cterm=none ctermbg=black ctermfg=yellow " Highlight matching parens
-highlight ColorColumn ctermbg=235 " Make it more obvious when lines are too long
+highlight ColorColumn ctermbg=235                            " Make it more obvious when lines are too long
 
 " ================================ "
 " Case insensitive common commands "

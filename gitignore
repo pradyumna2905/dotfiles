@@ -2,6 +2,7 @@
 *~
 tags
 log/
+*.log
 db/*.sqlite3
 .netrwhist
 .bundle
