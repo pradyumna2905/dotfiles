@@ -1,0 +1,139 @@
+#!/usr/bin/bash
+
+function git-new-remote-tracking {
+  git checkout -b $1 && git push -u origin $1
+}
+
+function git_branch_name {
+  val=`git branch 2>/dev/null | grep '^*' | colrm 1 2`
+  echo "$val"
+}
+
+function pull_branch {
+  branch=`git_branch_name`
+  echo 'git pull origin' $branch
+  git pull origin $branch
+}
+
+# Creates EBA-XXXX branch relating to Jira ticket
+function create_eba_branch {
+  git checkout -b EBA-$1
+}
+
+function push_eba_branch {
+  branch=`git_branch_name`
+  echo 'git push origin' $branch:$branch
+  git push origin $branch:$branch
+}
+
+function force_push_eba_branch {
+  branch=`git_branch_name`
+  echo 'git push -f origin' $branch:$branch
+  sleep 5
+  git push -f origin $branch:$branch
+}
+
+function ct_gmail {
+  echo "Opening CodeTheory Gmail..."
+  sleep 1
+  open "https://mail.google.com/mail/u/0/#inbox"
+}
+
+function eba_board {
+  echo "Opening EBA Board..."
+  sleep 1
+  open "https://standard.atlassian.net/secure/RapidBoard.jspa?rapidView=679&assignee=Pradyumna%40clearstack.io"
+}
+
+function jira {
+  echo "Opening issue EBA-"$1"..."
+  open "https://standard.atlassian.net/browse/EBA-"$1
+}
+
+function eba_open_branch_issue {
+  branch=`git_branch_name`
+  open "https://standard.atlassian.net/browse/"$branch
+}
+
+function eba_git_checkout_branch {
+  echo 'git checkout EBA-'$1
+  git checkout EBA-$1
+}
+
+function q {
+  echo "Searching "$1""
+  open "https://www.google.com/search?q=${1// /+}"
+}
+
+function git-done {
+  branch=`git_branch_name`
+  git checkout master && git merge $branch --ff-only && bundle install && prepdb && bin/rspec && git push && git-nuke $branch
+}
+
+function git-nuke {
+  git branch -D $1 && git push origin :$1
+}
+compdef _git git-nuke=git-checkout
+
+function git-on-master {
+  branch=`git_branch_name`
+  git checkout master && git pull --rebase 
+  git checkout $branch
+  git rebase master && git push -f
+  }
+
+function g {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status
+  fi
+}
+
+function rrg {
+  bundle exec rake routes | grep $1
+}
+
+function take {
+  mkdir $1
+  cd $1
+}
+
+function eba_git_commit {
+  branch=`git_branch_name`
+  git commit -m "${branch} | $*"
+}
+
+# Allows commit message without typing quotes (can't have quotes in the commit msg though).
+function gc {
+  git commit -m "$*"
+}
+
+# ssh into Clearstack's CI boxes.
+function cs_ci {
+  echo "SSH-ing into EBA.CI.KVM"$1
+  ssh csci -p '22'$1
+}
+
+function man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    PAGER="${commands[less]:-$PAGER}" \
+    _NROFF_U=1 \
+    PATH="$HOME/bin:$PATH" \
+      man "$@"
+}
+
+function ctagg() {
+  ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
+}
+
+function rdb {
+  rails db:$1
+}

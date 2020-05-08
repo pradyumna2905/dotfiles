@@ -1,0 +1,7 @@
+vim/.netrwhist
+vim/bundle
+vim/doc/tags-ja
+
+# Ignore ENV variables
+environment_variables
+

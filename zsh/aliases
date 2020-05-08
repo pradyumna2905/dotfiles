@@ -1,0 +1,131 @@
+# Handle the fact that this file will be used with multiple OSs
+platform=`uname`
+if [[ $platform == 'Linux' ]]; then
+  alias a='ls -lrth --color'
+elif [[ $platform == 'Darwin' ]]; then
+  alias a='ls -lrthG'
+fi
+
+# Put temp stuff here
+
+# ClearStack stuff
+alias eba='cd ~/code/clearstack/eba'
+alias ebabr=create_eba_branch
+alias ebagc=eba_git_commit
+alias bb='cd ~/code/clearstack/eba_black_box'
+alias int='cd ~/code/clearstack/eba_intake'
+alias jb='cd ~/code/clearstack/eba.jobs'
+alias ds='cd ~/code/clearstack/deploy_scripts'
+alias tmuxeba="eba && tmux new -s eba"
+alias tmuxint="eba_intake && tmux new -s intake"
+alias tmuxbb="eba_black_box && tmux new -s bb"
+alias ebatoken='bundle exec rake eba:api:generate_token'
+alias intoken='bundle exec rake eba_intake:api:generate_token'
+alias tokens='eba && ebatoken && int && intoken'
+alias redis='brew services start redis'
+alias hos='sudo vi /etc/hosts'
+alias ebapush='echo "Use pushb dude"'
+alias ebapushf=force_push_eba_branch
+alias solar='bundle exec rake sunspot:solr:start'
+alias ssolar='bundle exec rake sunsport:solr:stop'
+alias ebagco=eba_git_checkout_branch
+alias eo=eba_open
+alias ctgmail=ct_gmail
+alias ebaboard=eba_board
+alias os='ebaboard ; ctgmail ; tmuxeba'
+alias obr=eba_open_branch_issue
+alias csci=cs_ci
+alias notes='cd ~/Dropbox/notes'
+alias wlg='vi ~/Dropbox/notes/worklog.md'
+
+# Git stuff
+alias pushb=push_eba_branch
+alias skipci='git push -o ci.skip'
+alias push!=force_push_eba_branch
+alias ga='git add'
+alias gf='git fetch'
+alias gbr='git checkout -b'
+alias stas='git stash'
+alias gbrd='git branch -D'
+alias gad='git add'
+alias gag='git add . && git commit --amend --no-edit && git push -f'
+alias gca='git commit -a'
+alias gcl='git clone'
+alias gcm="git commit -m"
+alias gcd="git commit -v"
+alias gco='git checkout'
+alias gd='git diff'
+alias gdm='git diff master'
+alias gg='git lg'
+alias gpr='git pull --rebase'
+alias gpo='git pull origin'
+alias gp='pull_branch'
+alias gs='git status'
+alias grc='git rebase --continue'
+alias gsh='git show'
+alias gs='git status'
+alias gcd='git commit -v'
+alias m='git checkout master'
+alias dab='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+
+# Ruby/Rails
+alias t='bin/rspec'
+alias dt='DISABLE_SPRING=0 bin/rspec'
+alias be='bundle exec'
+alias bo='EDITOR=vi bundle open'
+alias bsf='bin/rspec spec/features'
+alias bu='bundle update'
+alias bi='bundle install'
+alias fs='bundle install && foreman start'
+alias gurad='guard'
+alias irb='irb --readline -r irb/completion'
+alias js='jekyll serve'
+alias rc='bin/rails console'
+alias rdm="bin/rake db:migrate"
+alias routes="bin/rake routes"
+alias rds='bundle exec rake db:reset'
+alias rdss='bundle exec rake db:reset && RAILS_ENV=test rake db:seed'
+alias seed='bin/rake db:seed'
+alias rdtp="bin/rake db:test:prepare"
+alias reguard='killall -9 ruby ; guard'
+alias rs='./bin/rails server'
+alias ss='spring stop'
+
+alias -g G='| grep'
+alias -g L='| less'
+alias -g M='| more'
+alias aliases='vim ~/.dotfiles/zsh/aliases'
+alias c='clear'
+alias code='cd ~/code/'
+alias d='cd ~/.dotfiles'
+alias drop='cd ~/Dropbox'
+alias so='source ~/.dotfiles/zsh/aliases'
+alias sof='source ~/.dotfiles/zsh/functions'
+alias restart_apache="sudo /etc/init.d/apache2 restart"
+alias restart_postgres="stoppostgres && startpostgres"
+alias startpostgres='pg_ctl -D /usr/local/var/postgres9.4 -l /usr/local/var/postgres9.4/server.log start'
+alias startredis='redis-server /usr/local/etc/redis.conf &'
+alias stoppostgres='pg_ctl -D /usr/local/var/postgres9.4 -l /usr/local/var/postgres9.4/server.log stop'
+alias trs='tmux rename-session'
+alias u='cd ..'
+alias v='vim'
+alias vi='vim'
+alias ctmp='rm -rf ~/.tmp/*'
+alias ev='cd ~/Dropbox/Personal/env_vars'
+alias mac="code && vi laptop/mac"
+alias ctags="`brew --prefix`/bin/ctags"
+
+# Personal
+# alias notes='vi ~/Documents/notes.md'
+alias osc='cd ~/code/open-source'
+
+# Balance
+alias bal='cd ~/Dropbox/Balance'
+alias 1bal='cd ~/Dropbox/Balance/1balance'
+alias 2bal2='cd ~/Dropbox/Balance/2balance'
+alias balm='cd ~/Dropbox/Balance/balance_mktg'
+alias balb='cd ~/Dropbox/Balance/balance_blog'
+
+# Docker
+alias dc='docker-compose'
+alias dcu='docker-compose up'

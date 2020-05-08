@@ -1,0 +1,56 @@
+[user]
+	name = Pradyumna Shembekar
+	email = pradyumna2905@gmail.com
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+
+[color "diff"]
+	meta = yellow
+
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim --noplugin
+
+[apply]
+	whitespace = nowarn
+
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	d = difftool
+
+[help]
+	autocorrect = 1
+
+[branch]
+	autosetupmerge = true
+	autosetuprebase = always
+
+[push]
+	default = current
+
+[rerere]
+	enabled = 1
+
+[github]
+	user = pradyumna2905
+
+[merge]
+	ff = only
+
+[fetch]
+	prune = true
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
