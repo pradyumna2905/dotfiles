@@ -19,6 +19,7 @@ Plugin 'tpope/vim-rails'                                             " Rails
 Plugin 'tpope/vim-repeat'                                            " Repeat operations from plugins via .
 Plugin 'tpope/vim-surround'                                          " Quotes/Parens
 Plugin 'tpope/vim-cucumber'                                          " Cucumber
+Plugin 'tpope/vim-commentary'                                        " Comment out lines
 Plugin 'vim-ruby/vim-ruby'                                           " Ruby bindings
 Plugin 'godlygeek/tabular'                                           " Tabularize
 Plugin 'plasticboy/vim-markdown'                                     " MD
