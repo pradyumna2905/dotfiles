@@ -1,6 +1,13 @@
 [user]
 	name = Pradyumna Shembekar
 	email = pradyumna2905@gmail.com
+	signingkey = 7C81DF4F402BC8BC
+
+[gpg]
+	program = gpg
+
+[commit]
+	gpgsign = true
 
 [color]
 	diff = auto
