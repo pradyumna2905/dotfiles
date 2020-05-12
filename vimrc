@@ -161,6 +161,11 @@ map <Leader>a :NERDTreeToggle<CR>
 noremap <silent> <leader>m :NERDTreeFind<cr>
 inoremap <Tab> <C-P>
 
+" Git Leaders
+map <Leader>g :Git<cr>
+map <Leader>gb :Gblame<cr>
+map <Leader>gd :Gdiff<cr>
+
 function! FormatFile()
   normal! mmgg=G`m^
 endfunction
