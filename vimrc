@@ -40,6 +40,8 @@ Plugin 'mattn/emmet-vim'                                             " React
 Plugin 'alvan/vim-closetag'                                          " Close HTML tags
 Plugin 'scrooloose/nerdtree'                                         " File Explorer
 Plugin 'Xuyuanp/nerdtree-git-plugin'                                 " Git plugin for NERDTree
+Plugin 'airblade/vim-gitgutter'                                      " Git gutter
+Plugin 'tpope/vim-vinegar'                                           " Netrw on steroids
 call vundle#end()
 filetype plugin indent on
 
@@ -130,6 +132,8 @@ map <Leader>cu :Tabularize /\|<CR>
 map <Leader>co mmggVG"*y`m
 map <Leader>n :cn<cr>
 map <Leader>p :cp<cr>
+" Search all occurrences
+nmap <Leader>sa :Ag <C-r>=expand('<cword>')<CR><CR> 
 map <Leader>cs :call SearchForCallSitesCursor()<CR>
 map <Leader>cd :call SearchForRubyMethodDeclarationCursor()<CR>
 map <Leader>cf :call SearchForRubyClassCursor()<CR>
@@ -164,6 +168,7 @@ inoremap <Tab> <C-P>
 " Git Leaders
 map <Leader>g :Git<cr>
 map <Leader>gb :Gblame<cr>
+map <Leader>gc :Gcommit<cr>
 map <Leader>gd :Gdiff<cr>
 
 function! FormatFile()
@@ -331,6 +336,11 @@ command! WQ wq
 " =================== "
 " Ruby Search Methods "
 " =================== "
+function! SearchAllOccurrences()
+  let searchTerm = expand("<cword>")
+  cexpr system('ag -w ' . shellescape(searchTerm))
+endfunction
+
 function! SearchForCallSitesCursor()
   let searchTerm = expand("<cword>")
   call SearchForCallSites(searchTerm)
@@ -366,6 +376,9 @@ function! SearchForRubyClass(term)
   let search = class . '|' . module
   cexpr system('ag -w ' . shellescape(search))
 endfunction
+
+" Enable built-in matchit plugin
+runtime macros/matchit.vim
 
 " ================= "
 " File ext settings "
