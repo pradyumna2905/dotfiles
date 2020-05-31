@@ -196,6 +196,7 @@ noremap <leader>0 :tablast<cr>
 nnoremap H ^
 nnoremap L $
 map <C-p> :Files<CR>
+map ; :Files<CR>
 
 
 " Open tree of the current file's parent folder
@@ -279,6 +280,7 @@ set ttimeoutlen=1                 " Faster leader commands
 set timeoutlen=500
 set list listchars=tab:»·,trail:· " Display whitespace and tab chars
 set hlsearch                      " Switch on highlighting the last used search pattern
+set updatetime=100                " Used for git gutter refresh
 
 " ======= "
 " Letters "
