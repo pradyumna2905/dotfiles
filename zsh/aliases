@@ -36,7 +36,6 @@ alias os='ebaboard ; ctgmail ; tmuxeba'
 alias obr=eba_open_branch_issue
 alias csci=cs_ci
 alias notes='cd ~/Dropbox/notes'
-alias wlg='vi ~/Dropbox/notes/worklog.md'
 
 # Git stuff
 alias pushb=push_eba_branch
@@ -91,6 +90,7 @@ alias reguard='killall -9 ruby ; guard'
 alias rs='./bin/rails server'
 alias ss='spring stop'
 
+# General
 alias -g G='| grep'
 alias -g L='| less'
 alias -g M='| more'
@@ -114,6 +114,7 @@ alias ctmp='rm -rf ~/.tmp/*'
 alias ev='cd ~/Dropbox/Personal/env_vars'
 alias mac="code && vi laptop/mac"
 alias ctags="`brew --prefix`/bin/ctags"
+alias mg="echo \"Emacs?\""
 
 # Personal
 # alias notes='vi ~/Documents/notes.md'
