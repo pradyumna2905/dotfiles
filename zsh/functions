@@ -9,6 +9,10 @@ function git_branch_name {
   echo "$val"
 }
 
+function delete_merged_branches {
+  git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d
+}
+
 function pull_branch {
   branch=`git_branch_name`
   echo 'git pull origin' $branch
