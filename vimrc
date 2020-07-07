@@ -42,6 +42,7 @@ Plugin 'scrooloose/nerdtree'                                         " File Expl
 Plugin 'Xuyuanp/nerdtree-git-plugin'                                 " Git plugin for NERDTree
 Plugin 'airblade/vim-gitgutter'                                      " Git gutter
 Plugin 'tpope/vim-vinegar'                                           " Netrw on steroids
+Plugin 'dense-analysis/ale'                                          " Lint engine
 call vundle#end()
 filetype plugin indent on
 
@@ -286,6 +287,11 @@ set updatetime=100                " Used for git gutter refresh
 " Letters "
 " ======= "
 let g:rspec_command = '!clear && bin/rspec {spec}'
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\   'css': ['prettier'],
+\}
+let g:ale_fix_on_save = 1
 
 au BufNewFile,BufRead *.txt setlocal nolist " Don't display whitespace
 
