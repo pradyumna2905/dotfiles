@@ -163,6 +163,7 @@ map <Leader>sc :setlocal spell spelllang=en_us<cr>
 map <Leader>ns :set nospell<cr>
 map <Leader>mm [<C-d>
 map <Leader>a :NERDTreeToggle<CR>
+map <Leader>at :ALEToggle<CR>
 noremap <silent> <leader>m :NERDTreeFind<cr>
 inoremap <Tab> <C-P>
 
@@ -198,6 +199,8 @@ nnoremap H ^
 nnoremap L $
 map <C-p> :Files<CR>
 map ; :Files<CR>
+map [j :ALENextWrap<CR>
+map [k :ALEPreviousWrap<CR>
 
 
 " Open tree of the current file's parent folder
@@ -288,10 +291,10 @@ set updatetime=100                " Used for git gutter refresh
 " ======= "
 let g:rspec_command = '!clear && bin/rspec {spec}'
 let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint'],
-\   'css': ['prettier'],
+\   'javascript': ['eslint'],
+\   'ruby': ['standardrb'],
 \}
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 
 au BufNewFile,BufRead *.txt setlocal nolist " Don't display whitespace
 
