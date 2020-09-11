@@ -95,7 +95,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " =========================== "
 " Xuyuanp/nerdtree-git-plugin "
 " =========================== "
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "•",
     \ "Staged"    : "•",
     \ "Untracked" : "+",
@@ -139,8 +139,8 @@ map <Leader>cs :call SearchForCallSitesCursor()<CR>
 map <Leader>cd :call SearchForRubyMethodDeclarationCursor()<CR>
 map <Leader>cf :call SearchForRubyClassCursor()<CR>
 map <Leader>d Obinding.pry<esc>:w<cr>
+map <Leader>f Odebugger<esc>:w<cr>
 map <Leader>D obinding.pry<esc>:w<cr>
-map <Leader>dr :e ~/Dropbox<cr>
 map <Leader>o :w<cr>:call RunNearestSpec()<CR>
 map <Leader>ps :set paste<CR><esc>
 map <Leader>px :set nopaste<CR><esc>
