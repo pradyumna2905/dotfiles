@@ -109,6 +109,19 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+" ==== "
+" Fold "
+" ==== "
+function! FoldText()
+    let start_text = substitute(getline(v:foldstart),"^ *","",1)
+    let end_text = substitute(getline(v:foldend),"^ *","",1)
+
+    let text = '>>> ' . start_text . ' { ... } ' . end_text
+    return text
+endfunction
+set foldtext=FoldText()
+vnoremap <space> zf
+
 augroup myfiletypes
   " Clear old autocmds in group
   autocmd!
