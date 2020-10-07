@@ -34,7 +34,7 @@ alias ctgmail=ct_gmail
 alias ebaboard=eba_board
 alias obr=eba_open_branch_issue
 alias csci=cs_ci
-alias notes='cd ~/Dropbox/notes'
+alias wn='cd ~/code/clearstack/notes/'
 
 # Git stuff
 alias pushb=push_eba_branch
