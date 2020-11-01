@@ -120,12 +120,13 @@ alias mg="echo \"Emacs?\""
 # alias notes='vi ~/Documents/notes.md'
 alias osc='cd ~/code/open-source'
 
+# Dropbox Projects
+alias pj='cd ~/Dropbox/_Projects/'
+
 # Balance
-alias bal='cd ~/Dropbox/Balance'
-alias 1bal='cd ~/Dropbox/Balance/1balance'
-alias 2bal2='cd ~/Dropbox/Balance/2balance'
-alias balm='cd ~/Dropbox/Balance/balance_mktg'
-alias balb='cd ~/Dropbox/Balance/balance_blog'
+alias bal='cd ~/Dropbox/_Projects/Balance'
+alias 1bal='cd ~/Dropbox/_Projects/Balance/1balance'
+alias bx='cd ~/Dropbox/_Projects/Balance/balance-x'
 
 # Docker
 alias dc='docker-compose'
