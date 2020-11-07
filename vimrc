@@ -162,7 +162,7 @@ map <Leader>q :copen<cr><cr>
 map <Leader>ra :%s/
 map <Leader>rd :redraw!<cr>
 map <Leader>rs :vsp <C-r>#<cr><C-w>w
-map <Leader>rt q:?!ruby<cr><cr>
+map <Leader>rt :!ctags --tag-relative=yes --extras=+f -Rf.git/tags .<cr><cr>
 map <Leader>rw :%s/\s\+$//<cr>:w<cr>
 map <Leader>sn :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>t :w<cr>:call RunCurrentSpecFile()<CR>
@@ -257,6 +257,7 @@ map <Leader>r :call RenameFile()<cr>
 " Setters "
 " ======= "
 syntax on
+set tags+=.git/tags
 set hidden
 set rtp+=/usr/local/opt/fzf
 set backspace=indent,eol,start    " allow backspacing over everything in insert mode
