@@ -95,7 +95,7 @@ function g {
 }
 
 function rrg {
-  bundle exec rake routes | grep $1
+  bundle exec rails routes | grep $1
 }
 
 function take {
