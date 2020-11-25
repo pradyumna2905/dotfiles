@@ -43,7 +43,8 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'                                 " Git plugi
 Plugin 'airblade/vim-gitgutter'                                      " Git gutter
 Plugin 'tpope/vim-vinegar'                                           " Netrw on steroids
 Plugin 'dense-analysis/ale'                                          " Lint engine
-Plugin 'pradyumna2905/vim-ruby-def'                                  " Lint engine
+Plugin 'pradyumna2905/vim-ruby-def'                                  " Ruby search
+Plugin 'tpope/vim-dotenv'                                            " Dotenv
 call vundle#end()
 filetype plugin indent on
 
@@ -304,7 +305,8 @@ set updatetime=100                " Used for git gutter refresh
 " ======= "
 " Letters "
 " ======= "
-let g:rspec_command = '!clear && bin/rspec {spec}'
+" let g:rspec_command = '!clear && bin/rspec {spec}'
+let g:rspec_command = 'Dispatch bin/rspec {spec}'
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'ruby': ['standardrb'],
