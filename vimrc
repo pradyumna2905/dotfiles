@@ -84,7 +84,7 @@ let g:javascript_plugin_flow = 1
 " ================== "
 " alvan/vim-closetag "
 " ================== "
-let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml,*.jsx,*.js"
+let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml,*.jsx,*.js,*.liquid"
 
 " =================== "
 " scrooloose/nerdtree "
@@ -305,8 +305,8 @@ set updatetime=100                " Used for git gutter refresh
 " ======= "
 " Letters "
 " ======= "
-" let g:rspec_command = '!clear && bin/rspec {spec}'
-let g:rspec_command = 'Dispatch bin/rspec {spec}'
+let g:rspec_command = '!clear && bin/rspec {spec}'
+" let g:rspec_command = 'Dispatch bin/rspec {spec}'
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'ruby': ['standardrb'],
